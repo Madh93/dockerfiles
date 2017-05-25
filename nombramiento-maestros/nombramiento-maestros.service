@@ -1,0 +1,11 @@
+[Unit]
+Description=Obtener la lista reciente de nombramientos de maestros en Tenerife
+
+[Service]
+Type=simple
+PIDFile=/var/run/nombramiento-maestros.pid
+ExecStartPre=/bin/rm -f /var/run/nombramiento-maestros.pid
+ExecStart=/usr/local/bin/nombramiento-maestros
+
+[Install]
+WantedBy=multi-user.target
