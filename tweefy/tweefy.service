@@ -1,0 +1,11 @@
+[Unit]
+Description=Tweet Spotify's playing song everyday
+
+[Service]
+Type=simple
+PIDFile=/var/run/tweefy.pid
+ExecStartPre=/bin/rm -f /var/run/tweefy.pid
+ExecStart=/usr/bin/docker run --rm -i tweefy start.rb push
+
+[Install]
+WantedBy=multi-user.target

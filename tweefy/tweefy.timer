@@ -1,0 +1,9 @@
+[Unit]
+Description=Execute tweefy every day at 20:00 (GMT+0) o'clock
+
+[Timer]
+OnCalendar=*-*-* 20:00:00
+Unit=tweefy.service
+
+[Install]
+WantedBy=multi-user.target
