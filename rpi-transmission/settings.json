@@ -1,0 +1,7 @@
+{
+    "download-dir": "/app/completed",
+    "incomplete-dir": "/app/incomplete",
+    "incomplete-dir-enabled": true,
+    "rpc-whitelist": "127.0.0.1,192.168.1.32",
+    "rpc-whitelist-enabled": false
+}
