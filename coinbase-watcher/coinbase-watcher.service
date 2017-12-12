@@ -1,0 +1,11 @@
+[Unit]
+Description=Watching Coinbase wallet balance
+
+[Service]
+Type=simple
+PIDFile=/var/run/coinbase-watcher.pid
+ExecStartPre=/bin/rm -f /var/run/coinbase-watcher.pid
+ExecStart=/usr/bin/docker run -i --name coinbase-watcher -v /home/ubuntu/.dockerfiles/coinbase-watcher/db:/app/db coinbase-watcher start.rb
+
+[Install]
+WantedBy=multi-user.target
