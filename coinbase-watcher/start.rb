@@ -37,7 +37,7 @@ client = Coinbase::Wallet::Client.new(
 )
 
 # Get BTC, ETH and LTC accounts
-accounts = client.accounts.reject { |a| a.currency == 'EUR' }
+accounts = client.accounts.select { |a| %w[BTC ETH LTC].include? a.currency }
 
 # Add current currencies
 accounts.each do |account|
