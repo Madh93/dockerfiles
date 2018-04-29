@@ -1,7 +1,6 @@
 #! /bin/bash
 
-DESTINATION="" # Contact destination
-HOME="" # Custom '/home/user' directory
+TOKEN="" # Bot Token
 PDF=""
 SENT=0
 
@@ -11,7 +10,7 @@ while true; do
 
   if [ "$SENT" -eq 0 ]; then
     if [ "$PDF" != "" ]; then
-      docker run --rm -d -v $HOME/.telegram-cli:/root/.telegram-cli pataquets/telegram-cli -WR -e "msg $DESTINATION 'Mensaje enviado automáticamente\n\n $PDF'"
+      curl -X POST "https://api.telegram.org/bot$TOKEN/sendDocument?chat_id=@nombramientos_maestros_tfe&document=$PDF"
       echo "Nuevo PDF: $(date)" >> $HOME/.dockerfiles/nombramiento-maestros/oferta-maestros.log
       SENT=1
     fi

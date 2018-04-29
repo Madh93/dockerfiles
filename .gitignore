@@ -2,4 +2,6 @@
 *~
 *.swp
 *.db
+*.sqlite3
+Gemfile.lock
 secrets.yaml
